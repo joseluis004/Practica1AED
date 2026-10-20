@@ -162,7 +162,12 @@ dim(psychbike)
 str(psychbike)
 head(psychbike)
 tail(psychbike)
-summary(psychbike)
+
+psych_sum <- psychbike
+cols_hms <- sapply(psych_sum, inherits, "hms")
+psych_sum[cols_hms] <- lapply(psych_sum[cols_hms], as.character)
+
+summary(psych_sum)
 ```
 
 ## 5 Fichero data iris.zip
